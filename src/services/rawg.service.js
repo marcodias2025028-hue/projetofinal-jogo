@@ -10,10 +10,6 @@ if (!API_KEY || API_KEY === 'coloca_aqui_a_tua_chave_rawg') {
   )
 }
 
-/**
- * Faz o pedido e, em caso de erro, lança uma mensagem explícita
- * (em vez de um "fetch failed" genérico) para facilitar o diagnóstico.
- */
 async function fetchComErro(url) {
   let resposta
   try {
@@ -32,21 +28,8 @@ async function fetchComErro(url) {
   return resposta.json()
 }
 
-/**
- * Serviço responsável por consumir a API pública RAWG.io.
- * Apenas pedidos GET, pois a RAWG é uma API só de leitura.
- */
 export class RawgService {
 
-  /**
-   * Lista jogos com suporte a pesquisa, ordenação e paginação.
-   * @param {Object} opts
-   * @param {string} opts.search - termo de pesquisa
-   * @param {string} opts.ordering - campo de ordenação (ex: '-rating', 'name', '-released')
-   * @param {string} opts.genres - slug do género (filtragem)
-   * @param {string} opts.platforms - id da plataforma (filtragem)
-   * @param {number} opts.page - número da página
-   */
   listarJogos({ search = '', ordering = '', genres = '', platforms = '', page = 1 } = {}) {
     const params = new URLSearchParams({
       key: API_KEY,

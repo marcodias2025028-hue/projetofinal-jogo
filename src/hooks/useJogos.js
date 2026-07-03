@@ -3,11 +3,6 @@ import { RawgService } from '../services/rawg.service.js'
 
 const service = new RawgService()
 
-/**
- * Hook que encapsula o estado e a lógica de pesquisa, ordenação e
- * filtragem de jogos. As páginas apenas consomem este hook,
- * sem conhecerem detalhes da API RAWG.
- */
 export function useJogos() {
   const [jogos, setJogos] = useState([])
   const [loading, setLoading] = useState(false)

@@ -1,11 +1,5 @@
 const STORAGE_KEY = 'app-jogos-favoritos'
 
-/**
- * Serviço de favoritos com persistência em localStorage.
- * Mantém a mesma interface da versão com json-server
- * (listarFavoritos, adicionarFavorito, atualizarFavorito, removerFavorito),
- * pelo que os hooks e páginas não precisam de ser alterados.
- */
 export class FavoritosService {
 
   _ler() {

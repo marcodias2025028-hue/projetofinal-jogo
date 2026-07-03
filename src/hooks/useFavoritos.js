@@ -3,10 +3,6 @@ import { FavoritosService } from '../services/favoritos.service.js'
 
 const service = new FavoritosService()
 
-/**
- * Hook que encapsula a lógica de leitura e escrita da API local
- * de favoritos (POST / PATCH / DELETE).
- */
 export function useFavoritos() {
   const [favoritos, setFavoritos] = useState([])
   const [loading, setLoading] = useState(false)
