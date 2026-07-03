@@ -399,6 +399,58 @@ ion-content {
   --background: var(--bg);
 }
 
+/* ---------- star rating ---------- */
+
+.star-rating {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.4rem 0;
+}
+
+.star-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.star-row {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+  transition: transform 0.1s ease;
+}
+
+.star-btn:hover {
+  transform: scale(1.2);
+}
+
+.star-filled {
+  font-size: 1.5rem;
+  color: var(--ion-color-warning, #ffb84d);
+}
+
+.star-empty {
+  font-size: 1.5rem;
+  color: var(--muted);
+}
+
+.star-valor {
+  margin-left: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ion-color-warning, #ffb84d);
+}
+
 ion-chip {
   --background: rgba(124, 92, 255, 0.15);
   color: var(--accent);
