@@ -469,3 +469,62 @@ ion-button {
     padding: 0.5rem 1rem 2rem;
   }
 }
+
+/* ---------- dark mode toggle ---------- */
+
+.darkmode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding-right: 0.75rem;
+}
+
+.toggle-icon {
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+/* ---------- stats card ---------- */
+
+.stats-card {
+  margin: 1rem 1.5rem 0.5rem !important;
+  --background: var(--surface-2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+}
+
+.stats-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem !important;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.stat-valor {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.1rem;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--border);
+}
