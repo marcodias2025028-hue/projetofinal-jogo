@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import {
     IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
     IonList, IonItem, IonThumbnail, IonLabel, IonButton, IonIcon,
-    IonToast, IonTextarea, IonSkeletonText, IonCard, IonCardContent,
+    IonToast, IonTextarea, IonSkeletonText, IonCard, IonCardContent, IonAlert,
 } from '@ionic/react'
 import { trash, save, star, starOutline } from 'ionicons/icons'
 
@@ -89,6 +89,7 @@ function FavoritesPage() {
     const { favoritos, loading, erro, atualizar, remover } = useFavoritos()
     const [edicoes, setEdicoes] = useState({})
     const [toastSucesso, setToastSucesso] = useState(false)
+    const [confirmarRemover, setConfirmarRemover] = useState(null) // id do favorito a remover
 
     function temAlteracoes(fav) {
         const ed = edicoes[fav.id]
@@ -124,7 +125,28 @@ function FavoritesPage() {
             </IonHeader>
 
             <IonContent>
-                {/* Toast de erro */}
+                {/* Confirmação de remoção */}
+                <IonAlert
+                    isOpen={confirmarRemover !== null}
+                    header="Remover favorito"
+                    message="Tens a certeza que queres remover este jogo dos favoritos?"
+                    buttons={[
+                        {
+                            text: 'Cancelar',
+                            role: 'cancel',
+                            handler: () => setConfirmarRemover(null),
+                        },
+                        {
+                            text: 'Remover',
+                            role: 'destructive',
+                            handler: () => {
+                                remover(confirmarRemover)
+                                setConfirmarRemover(null)
+                            },
+                        },
+                    ]}
+                    onDidDismiss={() => setConfirmarRemover(null)}
+                />
                 <IonToast isOpen={erro !== ''} message={erro} duration={4000} color="danger" />
 
                 {/* Toast de sucesso */}
@@ -190,7 +212,7 @@ function FavoritesPage() {
                                     <IonIcon icon={save} color={temAlteracoes(fav) ? 'primary' : 'medium'} />
                                 </IonButton>
 
-                                <IonButton slot="end" fill="clear" onClick={() => remover(fav.id)}>
+                                <IonButton slot="end" fill="clear" onClick={() => setConfirmarRemover(fav.id)}>
                                     <IonIcon icon={trash} color="danger" />
                                 </IonButton>
                             </IonItem>
