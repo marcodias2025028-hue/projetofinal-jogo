@@ -107,7 +107,7 @@ export class SteamService {
    * Este endpoint faz parte da Web API oficial da Steam e é chamado com POST.
    */
   async obterNoticias(appid, count = 5) {
-    const data = await postSteamApi('/ISteamNews/GetNewsForApp/v2/', {
+    const data = await getSteamApi('/ISteamNews/GetNewsForApp/v2/', {
       key: API_KEY,
       appid,
       count,
