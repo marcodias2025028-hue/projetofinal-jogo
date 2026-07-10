@@ -15,8 +15,9 @@
  *   VITE_STEAM_API_KEY → obtém-se grátis em https://steamcommunity.com/dev/apikey
  */
 
-const BASE_URL     = '/steam'    // proxy do Vite → store.steampowered.com
-const API_BASE_URL = '/steamapi' // proxy do Vite → api.steampowered.com
+// DEPOIS
+const BASE_URL     = '/api/steam-store'
+const API_BASE_URL = '/api/steam-web'
 const API_KEY       = import.meta.env.VITE_STEAM_API_KEY
 
 if (!API_KEY || API_KEY === 'coloca_aqui_a_tua_chave_steam') {
