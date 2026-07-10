@@ -43,14 +43,12 @@ async function getSteam(path) {
   return resposta.json()
 }
 
-async function postSteamApi(path, dados) {
+// DEPOIS
+async function getSteamApi(path, dados) {
+  const params = new URLSearchParams(dados)
   let resposta
   try {
-    resposta = await fetch(`${API_BASE_URL}${path}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(dados),
-    })
+    resposta = await fetch(`${API_BASE_URL}${path}?${params.toString()}`)
   } catch {
     throw new Error('Não foi possível contactar a Web API da Steam. Verifica a ligação à internet.')
   }
